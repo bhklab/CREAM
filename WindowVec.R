@@ -5,18 +5,19 @@
 ###################### in which the first column is chromosome annotation, 
 ###################### and second and third columns are start and ending positions.
 ###################### 2) peakNumMin: minimum Order of COREs
+###################### 3) WScutoff: threshold used to identify WS within distribution of maximum distance betwqeen peaks for each Order of CORE
 
-WindowVec <- function(InputData, peakNumMin){
+WindowVec <- function(InputData, peakNumMin, WScutoff){
   
   WindowVec_Act <- c()
-  WindowSize <- WindowSizeRecog(InputData, peakNumMin)
+  WindowSize <- WindowSizeRecog(InputData, peakNumMin, WScutoff)
   WindowVec_Act <- c(WindowVec_Act, WindowSize)
   OrderIter <- 1
   while(WindowVec_Act[length(WindowVec_Act)] >0){
     OrderIter <- (OrderIter+1)
     peakNumMax <- OrderIter
     
-    WindowSize <- WindowSizeRecog(InputData, peakNumMax)
+    WindowSize <- WindowSizeRecog(InputData, peakNumMax, WScutoff)
     
     WindowVec_Act <- c(WindowVec_Act, WindowSize)
     lenWinVec <- length(WindowVec_Act)

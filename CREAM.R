@@ -6,8 +6,9 @@
 ############################# 2) out_path: the path in which you want to store the identified COREs
 ############################# 3) MinLength: Criteria for the minimum number of functional regions in the input file
 ############################# 4) peakNumMin: Minimum number of peaks for CORE identification
+############################# 5) WScutoff: threshold used to identify WS within distribution of maximum distance betwqeen peaks for each Order of CORE
 
-CREAM <- function(in_path, out_path, MinLength = 1000, peakNumMin = 2){
+CREAM <- function(in_path, out_path, WScutoff = 1.5, MinLength = 1000, peakNumMin = 2){
   InputData   <- read.table(in_path, sep="\t")
   colnames(InputData) <- c("chr", "start", "end")
   ###########################
@@ -16,7 +17,7 @@ CREAM <- function(in_path, out_path, MinLength = 1000, peakNumMin = 2){
     stop(paste( "Number of functional regions is less than ", MinLength, ".", sep = "", collapse = ""))
   }
   #####################
-  WindowVecFinal <- WindowVec(InputData, peakNumMin)
+  WindowVecFinal <- WindowVec(InputData, peakNumMin, WScutoff)
   OutputList <- ElementRecog(InputData, WindowVecFinal, (1+length(WindowVecFinal)), peakNumMin)
   WidthSeq_Vec    <-  OutputList[[1]]
   StartSeq_Vec    <-  OutputList[[2]]

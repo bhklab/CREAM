@@ -4,8 +4,9 @@
 ###################### 1) InputData : The input data as a table including chromosome regions
 ###################### in which the first column is chromosome annotation, and second and third columns are start and ending positions.
 ###################### 2) COREorder: Order of the COREs which window size has to be determined for.
+###################### 3) WScutoff: threshold used to identify WS within distribution of maximum distance betwqeen peaks for each Order of CORE
 
-WindowSizeRecog <- function(InputData, COREorder){
+WindowSizeRecog <- function(InputData, COREorder, WScutoff){
   
   ChrSeq             <- as.character(unique(InputData[,1]))
   WidthSeq_All       <- c()
@@ -70,8 +71,8 @@ WindowSizeRecog <- function(InputData, COREorder){
   SortedWindow_Vec <- sort(WindowAll_Vec[which(OrderSeqAll_Vec == i)])
   
   SortedWindowQuan <- quantile(SortedWindow_Vec)
-  aa <- (as.numeric(SortedWindowQuan[4]) + 1.5*(as.numeric(SortedWindowQuan[4])-
-                                                  as.numeric(SortedWindowQuan[2])))
+  aa <- (as.numeric(SortedWindowQuan[4]) + WScutoff*(as.numeric(SortedWindowQuan[4])-
+                                                       as.numeric(SortedWindowQuan[2])))
   RemovePeaks <- which(SortedWindow_Vec > aa)
   
   print(min(SortedWindow_Vec))
@@ -83,8 +84,8 @@ WindowSizeRecog <- function(InputData, COREorder){
   }
   
   bb_quan <- quantile(bb)
-  TightReg <- (as.numeric(bb_quan[2]) - 1.5*(as.numeric(bb_quan[4]) -
-                                               as.numeric(bb_quan[2])))
+  TightReg <- (as.numeric(bb_quan[2]) - WScutoff*(as.numeric(bb_quan[4]) -
+                                                    as.numeric(bb_quan[2])))
   Outliers <- which(bb < TightReg)
   
   if(length(Outliers) > 0){
