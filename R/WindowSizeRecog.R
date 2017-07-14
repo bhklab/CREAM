@@ -6,7 +6,7 @@
 #' @param COREorder Order of the COREs which window size has to be determined for.
 #' @param WScutoff Threshold used to identify WS within distribution of maximum
 #' distance betwqeen peaks for each Order of CORE
-#' @return
+#' @return Window size identified for each order of CORE
 #' @examples
 #' @export
 WindowSizeRecog <- function(InputData, COREorder, WScutoff){
