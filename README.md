@@ -1,5 +1,5 @@
 # CREAM (Clustering of Functional Regions Analysis Method) #
-[![Travis Build Status](https://travis-ci.org/bhklab/CREAM.svg?branch=master)](https://travis-ci.org/bhklab/CREAM) [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/gvxbin36u3yqx50s?svg=true)](https://ci.appveyor.com/project/kofiav/cream-l3j9o)
+[![Travis Build Status](https://travis-ci.org/bhklab/CREAM.svg?branch=master)](https://travis-ci.org/bhklab/CREAM) [![codecov](https://codecov.io/gh/bhklab/CREAM/branch/master/graph/badge.svg)](https://codecov.io/gh/bhklab/CREAM) [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/gvxbin36u3yqx50s?svg=true)](https://ci.appveyor.com/project/kofiav/cream-l3j9o)
 
 Overview
 --------

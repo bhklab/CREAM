@@ -18,7 +18,7 @@ License: Artistic-2.0
 Imports: stats, utils
 Depends: R (>= 3.4)
 URL: http://www.pmgenomics.ca/bhklab/software/consensusOV
-Suggests: knitr, rmarkdown
+Suggests: knitr, rmarkdown, testthat
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
 LazyData: true
