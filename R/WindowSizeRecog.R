@@ -1,13 +1,16 @@
-
-###################### WindowSizeRecog is a function to specify window size for each Order of COREs
-###################### Input variables of this function are as follows:
-###################### 1) InputData : The input data as a table including chromosome regions
-###################### in which the first column is chromosome annotation, and second and third columns are start and ending positions.
-###################### 2) COREorder: Order of the COREs which window size has to be determined for.
-###################### 3) WScutoff: threshold used to identify WS within distribution of maximum distance betwqeen peaks for each Order of CORE
-
+#' WindowSizeRecog is a function to specify window size for each Order of COREs
+#'
+#' @param InputData The input data as a table including chromosome regions
+#' in which the first column is chromosome annotation, and second and third
+#' columns are start and ending positions.
+#' @param COREorder Order of the COREs which window size has to be determined for.
+#' @param WScutoff Threshold used to identify WS within distribution of maximum
+#' distance betwqeen peaks for each Order of CORE
+#' @return
+#' @examples
+#' @export
 WindowSizeRecog <- function(InputData, COREorder, WScutoff){
-  
+
   ChrSeq             <- as.character(unique(InputData[,1]))
   WidthSeq_All       <- c()
   StartRegionAll_Vec <- c()
@@ -16,9 +19,9 @@ WindowSizeRecog <- function(InputData, COREorder, WScutoff){
   OrderSeqAll_Vec    <- c()
   SDSeqAll_Vec       <- c()
   WindowAll_Vec      <- c()
-  
+
   for(chrIter in ChrSeq){
-    
+
     InputData_Start  <- InputData[which(InputData[,1] == chrIter),"start"]
     InputData_End    <- InputData[which(InputData[,1] == chrIter),"end"]
     RemInd <- which(duplicated(paste(InputData_Start, InputData_End, sep = "_")))
@@ -29,10 +32,10 @@ WindowSizeRecog <- function(InputData, COREorder, WScutoff){
     InputData_End    <- InputData_End[order(InputData_Start, decreasing = F)]
     InputData_Start  <- InputData_Start[order(InputData_Start, decreasing = F)]
     InputData_Center <- 0.5*(InputData_Start + InputData_End)
-    
+
     InputData_StartSeq <- min(InputData_Start)
     InputData_EndSeq   <- max(InputData_End)
-    
+
     ChrElement_Vec    <- c()
     StartElement_Vec  <- c()
     EndElement_Vec    <- c()
@@ -43,11 +46,11 @@ WindowSizeRecog <- function(InputData, COREorder, WScutoff){
     peakNumIter <- COREorder
     i <- 1
     while(i < (length(InputData_Start)-(peakNumIter - 1))){
-      
+
       widthElement <- (InputData_End[(i+(peakNumIter - 1))] - InputData_Start[i])
-      checkwindow  <- max(InputData_Start[(i+1):(i + (peakNumIter - 1))] - 
+      checkwindow  <- max(InputData_Start[(i+1):(i + (peakNumIter - 1))] -
                             InputData_End[i:(i+ (peakNumIter - 1) - 1)])
-      
+
       ChrElement_Vec    <- c(ChrElement_Vec, chrIter)
       StartElement_Vec  <- c(StartElement_Vec, InputData_Start[i])
       EndElement_Vec    <- c(EndElement_Vec, InputData_End[(i+(peakNumIter-1))])
@@ -56,7 +59,7 @@ WindowSizeRecog <- function(InputData, COREorder, WScutoff){
       WindowElement_Vec <- c(WindowElement_Vec, checkwindow)
       i <- i + 1
     }
-    
+
     ##### Window-based analysis
     WidthSeq_All       <- c(WidthSeq_All, WidthElement_Vec)
     StartRegionAll_Vec <- c(StartRegionAll_Vec, StartElement_Vec)
@@ -66,15 +69,15 @@ WindowSizeRecog <- function(InputData, COREorder, WScutoff){
     SDSeqAll_Vec       <- c(SDSeqAll_Vec, SDElement_Vec)
     WindowAll_Vec <- c(WindowAll_Vec, WindowElement_Vec)
   }
-  
+
   i <- COREorder
   SortedWindow_Vec <- sort(WindowAll_Vec[which(OrderSeqAll_Vec == i)])
-  
+
   SortedWindowQuan <- quantile(SortedWindow_Vec)
   aa <- (as.numeric(SortedWindowQuan[4]) + WScutoff*(as.numeric(SortedWindowQuan[4])-
                                                        as.numeric(SortedWindowQuan[2])))
   RemovePeaks <- which(SortedWindow_Vec > aa)
-  
+
   print(min(SortedWindow_Vec))
   if(length(which(SortedWindow_Vec > aa)) > 0){
     print(min(SortedWindow_Vec[-RemovePeaks]))
@@ -82,12 +85,12 @@ WindowSizeRecog <- function(InputData, COREorder, WScutoff){
   }else{
     bb <- log(SortedWindow_Vec)
   }
-  
+
   bb_quan <- quantile(bb)
   TightReg <- (as.numeric(bb_quan[2]) - WScutoff*(as.numeric(bb_quan[4]) -
                                                     as.numeric(bb_quan[2])))
   Outliers <- which(bb < TightReg)
-  
+
   if(length(Outliers) > 0){
     WindowSize <- exp(TightReg)
   }else{

@@ -1,0 +1,19 @@
+Package: CREAM
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Date: 2017-06-14
+Author: Ali Madani, Victor Kofia, Benjamin Haibe-Kains
+Maintainer: Benjamin Haibe-Kains <benjamin.haibe.kains@utoronto.ca>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: Artistic-2.0
+Imports:
+Depends: R (>= 3.4)
+URL: http://www.pmgenomics.ca/bhklab/software/consensusOV
+Suggests: 
+VignetteBuilder: knitr
+RoxygenNote: 6.0.1
+LazyData: true
+biocViews:
+BugReports: https://github.com/bhklab/CREAM/issues
