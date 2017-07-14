@@ -1,7 +1,7 @@
 #' PeakMinFilt is a function to filter the lowest Order of COREs which distance
 #' between functional regions is close to the corresponding Window Size
 #'
-#' @param Clusters_init Table of indetified COREs befor filteration
+#' @param Clusters_init Table of indetified COREs before filteration
 #' @param WindowVecFinal Vector of window sizes orderes based on Order of CORE
 #' @return Minimum order of COREs
 #' @examples

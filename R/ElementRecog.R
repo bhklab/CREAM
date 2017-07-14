@@ -1,8 +1,9 @@
 #' ElementRecog is a function to identify COREs
 #'
 #' @param InputData The input data as a table including chromosome regions
-#' in which the first column is chromosome annotation, and second and third columns are start and ending positions.
-#' @param windowSize_Vec Vector of window sizes orderes based on Order of CORE
+#' in which the first column is chromosome annotation, and second and third
+#' columns are start and ending positions.
+#' @param windowSize_Vec Vector of window sizes ordered based on Order of CORE
 #' @param peakNumMax Maximum order of COREs (e.g. maximum number of peaks within COREs)
 #' @param peakNumMin Minimum order of COREs (e.g. minimum number of peaks within COREs)
 #' @return Identified COREs for the given input regions

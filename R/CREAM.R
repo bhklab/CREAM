@@ -1,11 +1,15 @@
 #' CREAM is the main function for CORE identification
 #'
-#' @param in_path Path to the input file (The file inclusing the functional regions)
-#' Note. You have to make sure that there is no overlapping regions within the input file
+#' @param in_path Path to the input file (The file inclusing the functional
+#' regions)
+#' Note. You have to make sure that there is no overlapping regions within the
+#' input file
 #' @param out_path The path in which you want to store the identified COREs
-#' @param MinLength Criteria for the minimum number of functional regions in the input file
+#' @param MinLength Criteria for the minimum number of functional regions in the
+#'  input file
 #' @param peakNumMin Minimum number of peaks for CORE identification
-#' @param WScutoff Threshold used to identify WS within distribution of maximum distance betwqeen peaks for each Order of CORE
+#' @param WScutoff Threshold used to identify WS within distribution of maximum
+#' distance between peaks for each Order of CORE
 #' @return Bed file including the identified COREs
 #' @examples
 #' @importFrom utils read.table write.table
