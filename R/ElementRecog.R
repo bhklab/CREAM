@@ -25,8 +25,8 @@ ElementRecog <- function(InputData, windowSize_Vec, peakNumMax, peakNumMin){
     InputData_Start  <- InputData[which(InputData[,1] == chrIter),"start"]
     InputData_End    <- InputData[which(InputData[,1] == chrIter),"end"]
 
-    InputData_End    <- InputData_End[order(InputData_Start, decreasing = F)]
-    InputData_Start  <- InputData_Start[order(InputData_Start, decreasing = F)]
+    InputData_End    <- InputData_End[order(InputData_Start, decreasing = FALSE)]
+    InputData_Start  <- InputData_Start[order(InputData_Start, decreasing = FALSE)]
     InputData_Center <- 0.5*(InputData_Start + InputData_End)
 
     InputData_StartSeq <- min(InputData_Start)

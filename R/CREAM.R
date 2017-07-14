@@ -33,12 +33,12 @@ CREAM <- function(in_path, out_path, WScutoff = 1.5, MinLength = 1000, peakNumMi
   WinSizeSeq_Vec  <-  OutputList[[6]]
   ####################
   if(!is.null(StartSeq_Vec)){
-    CombinedData <- cbind(ChrSeq_Vec[sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]],
-                          StartSeq_Vec[sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]],
-                          EndSeq_Vec[sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]],
-                          OrderSeq_Vec[sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]],
-                          WidthSeq_Vec[sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]],
-                          WinSizeSeq_Vec[sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]])
+    CombinedData <- cbind(ChrSeq_Vec[sort(OrderSeq_Vec, decreasing = TRUE, index.return = TRUE)[[2]]],
+                          StartSeq_Vec[sort(OrderSeq_Vec, decreasing = TRUE, index.return = TRUE)[[2]]],
+                          EndSeq_Vec[sort(OrderSeq_Vec, decreasing = TRUE, index.return = TRUE)[[2]]],
+                          OrderSeq_Vec[sort(OrderSeq_Vec, decreasing = TRUE, index.return = TRUE)[[2]]],
+                          WidthSeq_Vec[sort(OrderSeq_Vec, decreasing = TRUE, index.return = TRUE)[[2]]],
+                          WinSizeSeq_Vec[sort(OrderSeq_Vec, decreasing = TRUE, index.return = TRUE)[[2]]])
     colnames(CombinedData) <- c("Chr", "Start", "End", "Order", "Width", "WindowSize")
 
     MinPeaks <- PeakMinFilt(CombinedData, WindowVecFinal)

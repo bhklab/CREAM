@@ -30,8 +30,8 @@ WindowSizeRecog <- function(InputData, COREorder, WScutoff){
       InputData_Start <- InputData_Start[-RemInd]
       InputData_End <- InputData_End[-RemInd]
     }
-    InputData_End    <- InputData_End[order(InputData_Start, decreasing = F)]
-    InputData_Start  <- InputData_Start[order(InputData_Start, decreasing = F)]
+    InputData_End    <- InputData_End[order(InputData_Start, decreasing = FALSE)]
+    InputData_Start  <- InputData_Start[order(InputData_Start, decreasing = FALSE)]
     InputData_Center <- 0.5*(InputData_Start + InputData_End)
 
     InputData_StartSeq <- min(InputData_Start)

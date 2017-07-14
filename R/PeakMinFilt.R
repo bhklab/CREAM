@@ -9,7 +9,7 @@
 #' @export
 PeakMinFilt <- function(Clusters_init, WindowVecFinal){
 
-  UniqueOrder <- sort(unique(as.numeric(Clusters_init[,"Order"])), decreasing = F)
+  UniqueOrder <- sort(unique(as.numeric(Clusters_init[,"Order"])), decreasing = FALSE)
   MinWindowVec <- c()
   MaxWindowVec <- c()
   Zscore <- c()
