@@ -22,5 +22,5 @@ Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
 LazyData: true
-biocViews: PeakDetection, FunctionalPrediction
+biocViews: PeakDetection, FunctionalPrediction, BiomedicalInformatics
 BugReports: https://github.com/bhklab/CREAM/issues
