@@ -15,10 +15,10 @@ Description: CREAM is a new method for identification of clusters of
  clustered as a CORE, 3) It calls COREs, 4) It filters the COREs with lowest order which 
  does not pass the threshold considered in the appraoch.
 License: Artistic-2.0
-Imports: 
+Imports: stats, utils
 Depends: R (>= 3.4)
 URL: http://www.pmgenomics.ca/bhklab/software/consensusOV
-Suggests: knitr, utils, stats
+Suggests: knitr
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
 LazyData: true

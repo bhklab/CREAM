@@ -18,6 +18,9 @@ Note. You have to make sure that there is no overlapping regions within the inpu
 
 \item{peakNumMin}{Minimum number of peaks for CORE identification}
 }
+\value{
+Bed file including the identified COREs
+}
 \description{
 CREAM is the main function for CORE identification
 }

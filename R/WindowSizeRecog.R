@@ -8,6 +8,7 @@
 #' distance betwqeen peaks for each Order of CORE
 #' @return Window size identified for each order of CORE
 #' @examples
+#' @importFrom stats median quantile
 #' @export
 WindowSizeRecog <- function(InputData, COREorder, WScutoff){
 

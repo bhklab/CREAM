@@ -16,6 +16,9 @@ in which the first column is chromosome annotation, and second and third columns
 
 \item{peakNumMin}{Minimum order of COREs (e.g. minimum number of peaks within COREs)}
 }
+\value{
+Identified COREs for the given input regions
+}
 \description{
 ElementRecog is a function to identify COREs
 }

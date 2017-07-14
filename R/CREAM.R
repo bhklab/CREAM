@@ -8,6 +8,7 @@
 #' @param WScutoff Threshold used to identify WS within distribution of maximum distance betwqeen peaks for each Order of CORE
 #' @return Bed file including the identified COREs
 #' @examples
+#' @importFrom utils read.table write.table
 #' @export
 CREAM <- function(in_path, out_path, WScutoff = 1.5, MinLength = 1000, peakNumMin = 2){
   InputData   <- read.table(in_path, sep="\t")

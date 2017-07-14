@@ -12,6 +12,9 @@ PeakMinFilt(Clusters_init, WindowVecFinal)
 
 \item{WindowVecFinal}{Vector of window sizes orderes based on Order of CORE}
 }
+\value{
+Minimum order of COREs
+}
 \description{
 PeakMinFilt is a function to filter the lowest Order of COREs which distance
 between functional regions is close to the corresponding Window Size

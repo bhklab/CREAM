@@ -5,6 +5,7 @@
 #' @param WindowVecFinal Vector of window sizes orderes based on Order of CORE
 #' @return Minimum order of COREs
 #' @examples
+#' @importFrom stats median
 #' @export
 PeakMinFilt <- function(Clusters_init, WindowVecFinal){
 

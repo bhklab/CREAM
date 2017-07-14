@@ -16,6 +16,9 @@ columns are start and ending positions.}
 \item{WScutoff}{Threshold used to identify WS within distribution of maximum
 distance betwqeen peaks for each Order of CORE}
 }
+\value{
+Window size identified for each order of CORE
+}
 \description{
 WindowSizeRecog is a function to specify window size for each Order of COREs
 }

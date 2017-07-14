@@ -16,6 +16,9 @@ columns are start and ending positions.}
 \item{WScutoff}{Threshold used to identify WS within distribution of maximum
 distance betwqeen peaks for each Order of CORE}
 }
+\value{
+Vector of window sizes from Order 2 up to maximum Order of COREs
+}
 \description{
 WindowVec is a function to specify window size for each Order of COREs
 }
