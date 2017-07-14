@@ -6,7 +6,7 @@
 #' @param peakNumMin Minimum Order of COREs
 #' @param WScutoff Threshold used to identify WS within distribution of maximum
 #'  distance betwqeen peaks for each Order of CORE
-#' @return
+#' @return Vector of window sizes from Order 2 up to maximum Order of COREs
 #' @examples
 #' @export
 WindowVec <- function(InputData, peakNumMin, WScutoff){
