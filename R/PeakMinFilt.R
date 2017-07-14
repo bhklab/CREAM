@@ -3,7 +3,7 @@
 #'
 #' @param Clusters_init Table of indetified COREs befor filteration
 #' @param WindowVecFinal Vector of window sizes orderes based on Order of CORE
-#' @return
+#' @return Minimum order of COREs
 #' @examples
 #' @export
 PeakMinFilt <- function(Clusters_init, WindowVecFinal){
