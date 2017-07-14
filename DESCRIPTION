@@ -1,17 +1,24 @@
 Package: CREAM
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Clustering of Functional Regiosn Analysis Method
 Version: 0.1.0
 Date: 2017-06-14
 Author: Ali Madani, Victor Kofia, Benjamin Haibe-Kains
 Maintainer: Benjamin Haibe-Kains <benjamin.haibe.kains@utoronto.ca>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: CREAM is a new method for identification of clusters of
+ functional regions (COREs) within chromosomes. It uses genome-wide maps of
+ functional regions in the tissue or cell type of interest, 
+ such as those generated from chromatin-based assays including DNaseI, ATAC or ChIP-Seq.
+ CREAM considers proximity of the elements within chromosomes of a given sample to identify
+ COREs in the following steps:1) It identifies window size or the maximum allowed distance
+ between the elements within each CORE, 2) It identifies number of elements which should be
+ clustered as a CORE, 3) It calls COREs, 4) It filters the COREs with lowest order which 
+ does not pass the threshold considered in the appraoch.
 License: Artistic-2.0
-Imports:
+Imports: 
 Depends: R (>= 3.4)
 URL: http://www.pmgenomics.ca/bhklab/software/consensusOV
-Suggests: 
+Suggests: knitr, utils, stats
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
 LazyData: true
