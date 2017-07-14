@@ -6,7 +6,7 @@
 #' @param MinLength Criteria for the minimum number of functional regions in the input file
 #' @param peakNumMin Minimum number of peaks for CORE identification
 #' @param WScutoff Threshold used to identify WS within distribution of maximum distance betwqeen peaks for each Order of CORE
-#' @return
+#' @return Bed file including the identified COREs
 #' @examples
 #' @export
 CREAM <- function(in_path, out_path, WScutoff = 1.5, MinLength = 1000, peakNumMin = 2){
