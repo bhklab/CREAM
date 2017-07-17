@@ -17,7 +17,7 @@ Description: CREAM is a new method for identification of clusters of
 License: Artistic-2.0
 Imports: stats, utils
 Depends: R (>= 3.4)
-URL: http://www.pmgenomics.ca/bhklab/software/consensusOV
+URL: https://github.com/bhklab/CREAM
 Suggests: knitr, rmarkdown, testthat
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
