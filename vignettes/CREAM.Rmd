@@ -7,6 +7,7 @@ vignette: >
   %\VignetteEngine{knitr::knitr}
   %\VignetteIndexEntry{Title of your vignette}
   %\usepackage[UTF-8]{inputenc}
+keywords: "pandoc, r markdown, knitr"
 ---
 
 ```{r setup, include=FALSE}
