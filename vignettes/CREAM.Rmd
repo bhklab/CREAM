@@ -24,6 +24,15 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 # Introduction
 
+CREAM is an R package for identification of clusters of genomic regions. 
+
+# Installation
+
+# Quick start
+
+# Input format
+
+# Output format
 
 ## R Markdown
 
