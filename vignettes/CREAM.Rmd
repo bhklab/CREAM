@@ -11,6 +11,11 @@ author:
 - name: Seyed Ali Madani Tonekaboni
   affiliation: University of Toronto
 date: "`r Sys.Date()`"
+-output: rmarkdown::html_vignette		
+ -vignette: >		
+ -  %\VignetteEngine{knitr::knitr}		
+ -  %\VignetteIndexEntry{CREAM}		
+ -  %\usepackage[UTF-8]{inputenc}
 keywords: "pandoc, r markdown, knitr"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 geometry: margin=1in
