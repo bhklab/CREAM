@@ -48,7 +48,9 @@ CREAM <- function(in_path, out_path, WScutoff = 1.5, MinLength = 1000, peakNumMi
       CombinedData <- CombinedData[-RemovePeaks,]
     }
 
-    CombinedData <- CombinedData[,c(1:3)]
+    CombinedData <- data.frame(seqnames=CombinedData[,1],
+                               starts=as.numeric(CombinedData[,2]),
+                               ends=as.numeric(CombinedData[,3]))
     colnames(CombinedData) <- NULL
     write.table(CombinedData , file = out_path,
                 row.names=FALSE, col.names = FALSE, quote = FALSE, sep = "\t")
