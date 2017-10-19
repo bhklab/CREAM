@@ -3,8 +3,11 @@ Type: Package
 Title: Clustering of Functional Regions Analysis Method
 Version: 0.1.0
 Date: 2017-06-14
-Author: Ali Madani, Victor Kofia, Benjamin Haibe-Kains
-Maintainer: Benjamin Haibe-Kains <benjamin.haibe.kains@utoronto.ca>
+Authors@R: c(
+    person("Ali", "Madani", , email = "", role = c("aut")),
+    person("Victor", "Kofia", , email = "victor.kofia@gmail.com", role = c("aut")),
+    person("Benjamin", "Haibe-Kains", , email = "benjamin.haibe.kains@utoronto.ca", role = c("aut", "cre"))
+    )
 Description: CREAM is a new method for identification of clusters of
  functional regions (COREs) within chromosomes. It uses genome-wide maps of
  functional regions in the tissue or cell type of interest, 
@@ -15,12 +18,20 @@ Description: CREAM is a new method for identification of clusters of
  clustered as a CORE, 3) It calls COREs, 4) It filters the COREs with lowest order which 
  does not pass the threshold considered in the appraoch.
 License: Artistic-2.0
-Imports: stats, utils
-Depends: R (>= 3.4)
+Imports:
+    stats,
+    utils
+Depends:
+    R (>= 3.4)
 URL: https://github.com/bhklab/CREAM
-Suggests: knitr, rmarkdown, testthat
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
+Roxygen: list(markdown = TRUE)
 LazyData: true
 biocViews: PeakDetection, FunctionalPrediction, BiomedicalInformatics, Clustering
 BugReports: https://github.com/bhklab/CREAM/issues
+Encoding: UTF-8
