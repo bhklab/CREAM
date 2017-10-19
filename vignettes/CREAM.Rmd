@@ -1,23 +1,15 @@
 ---
-output: 
-  pdf_document:
-    citation_package: natbib
-    keep_tex: true
-    fig_caption: true
-    latex_engine: pdflatex
-    template: ~/Dropbox/miscelanea/svm-r-markdown-templates/svm-latex-ms.tex
 title: "CREAM"
 author:
-- name: Seyed Ali Madani Tonekaboni
+  name: Seyed Ali Madani Tonekaboni
   affiliation: University of Toronto
-date: "`r Sys.Date()`"
--output: rmarkdown::html_vignette		
- -vignette: >		
- -  %\VignetteEngine{knitr::knitr}		
- -  %\VignetteIndexEntry{CREAM}		
- -  %\usepackage[UTF-8]{inputenc}
-keywords: "pandoc, r markdown, knitr"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: pdf_document
+vignette: >		
+  %\VignetteEngine{knitr::knitr}		
+  %\VignetteIndexEntry{CREAM}		
+  %\usepackage[UTF-8]{inputenc}
+keywords: "pandoc, r markdown, knitr"
 geometry: margin=1in
 fontfamily: mathpazo
 fontsize: 11pt
