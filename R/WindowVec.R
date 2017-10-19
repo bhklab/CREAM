@@ -14,7 +14,7 @@ WindowVec <- function(InputData, peakNumMin, WScutoff){
   WindowVec_Act <- c()
   WindowSize <- WindowSizeRecog(InputData, peakNumMin, WScutoff)
   WindowVec_Act <- c(WindowVec_Act, WindowSize)
-  OrderIter <- 1
+  OrderIter <- 2
   while(WindowVec_Act[length(WindowVec_Act)] >0){
     OrderIter <- (OrderIter+1)
     peakNumMax <- OrderIter
