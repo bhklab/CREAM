@@ -8,9 +8,9 @@ between functional regions is close to the corresponding Window Size}
 PeakMinFilt(Clusters_init, WindowVecFinal)
 }
 \arguments{
-\item{Clusters_init}{Table of indetified COREs befor filteration}
+\item{Clusters_init}{Table of indetified COREs before filteration}
 
-\item{WindowVecFinal}{Vector of window sizes orderes based on Order of CORE}
+\item{WindowVecFinal}{Vector of window sizes ordered based on Order of CORE}
 }
 \value{
 Minimum order of COREs

@@ -4,17 +4,18 @@
 \alias{CREAM}
 \title{CREAM is the main function for CORE identification}
 \usage{
-CREAM(in_path, out_path, WScutoff = 1.5, MinLength = 1000, peakNumMin = 2)
+CREAM(in_path, out_path, MinLength = 1000, peakNumMin = 2)
 }
 \arguments{
-\item{in_path}{Path to the input file (The file inclusing the functional regions)
-Note. You have to make sure that there is no overlapping regions within the input file}
+\item{in_path}{Path to the input file (The file inclusing the functional
+regions)
+Note. You have to make sure that there is no overlapping regions within the
+input file}
 
 \item{out_path}{The path in which you want to store the identified COREs}
 
-\item{WScutoff}{Threshold used to identify WS within distribution of maximum distance betwqeen peaks for each Order of CORE}
-
-\item{MinLength}{Criteria for the minimum number of functional regions in the input file}
+\item{MinLength}{Criteria for the minimum number of functional regions in the
+input file}
 
 \item{peakNumMin}{Minimum number of peaks for CORE identification}
 }

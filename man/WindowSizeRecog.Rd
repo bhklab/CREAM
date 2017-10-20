@@ -4,7 +4,7 @@
 \alias{WindowSizeRecog}
 \title{WindowSizeRecog is a function to specify window size for each Order of COREs}
 \usage{
-WindowSizeRecog(InputData, COREorder, WScutoff)
+WindowSizeRecog(InputData, COREorder)
 }
 \arguments{
 \item{InputData}{The input data as a table including chromosome regions
@@ -12,9 +12,6 @@ in which the first column is chromosome annotation, and second and third
 columns are start and ending positions.}
 
 \item{COREorder}{Order of the COREs which window size has to be determined for.}
-
-\item{WScutoff}{Threshold used to identify WS within distribution of maximum
-distance betwqeen peaks for each Order of CORE}
 }
 \value{
 Window size identified for each order of CORE

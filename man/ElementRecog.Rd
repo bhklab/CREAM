@@ -8,9 +8,10 @@ ElementRecog(InputData, windowSize_Vec, peakNumMax, peakNumMin)
 }
 \arguments{
 \item{InputData}{The input data as a table including chromosome regions
-in which the first column is chromosome annotation, and second and third columns are start and ending positions.}
+in which the first column is chromosome annotation, and second and third
+columns are start and ending positions.}
 
-\item{windowSize_Vec}{Vector of window sizes orderes based on Order of CORE}
+\item{windowSize_Vec}{Vector of window sizes ordered based on Order of CORE}
 
 \item{peakNumMax}{Maximum order of COREs (e.g. maximum number of peaks within COREs)}
 

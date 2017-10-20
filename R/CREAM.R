@@ -8,22 +8,20 @@
 #' @param MinLength Criteria for the minimum number of functional regions in the
 #'  input file
 #' @param peakNumMin Minimum number of peaks for CORE identification
-#' @param WScutoff Threshold used to identify WS within distribution of maximum
-#' distance between peaks for each Order of CORE
 #' @return Bed file including the identified COREs
 #' @examples
 #' @importFrom utils read.table write.table
 #' @export
-CREAM <- function(in_path, out_path, WScutoff = 1.5, MinLength = 1000, peakNumMin = 2){
-  InputData   <- read.table(in_path, sep="\t")
+CREAM <- function(in_path, out_path, MinLength = 1000, peakNumMin = 2) {
+  InputData <- read.table(in_path, sep="\t")
   colnames(InputData) <- c("chr", "start", "end")
   ###########################
   ###########################
-  if(nrow(InputData) < MinLength){
+  if (nrow(InputData) < MinLength) {
     stop(paste( "Number of functional regions is less than ", MinLength, ".", sep = "", collapse = ""))
   }
   #####################
-  WindowVecFinal <- WindowVec(InputData, peakNumMin, WScutoff)
+  WindowVecFinal <- WindowVec(InputData, peakNumMin)
   OutputList <- ElementRecog(InputData, WindowVecFinal, (1+length(WindowVecFinal)), peakNumMin)
   WidthSeq_Vec    <-  OutputList[[1]]
   StartSeq_Vec    <-  OutputList[[2]]
@@ -32,25 +30,23 @@ CREAM <- function(in_path, out_path, WScutoff = 1.5, MinLength = 1000, peakNumMi
   OrderSeq_Vec    <-  OutputList[[5]]
   WinSizeSeq_Vec  <-  OutputList[[6]]
   ####################
-  if(!is.null(StartSeq_Vec)){
-    CombinedData <- cbind(ChrSeq_Vec[sort(OrderSeq_Vec, decreasing = TRUE, index.return = TRUE)[[2]]],
-                          StartSeq_Vec[sort(OrderSeq_Vec, decreasing = TRUE, index.return = TRUE)[[2]]],
-                          EndSeq_Vec[sort(OrderSeq_Vec, decreasing = TRUE, index.return = TRUE)[[2]]],
-                          OrderSeq_Vec[sort(OrderSeq_Vec, decreasing = TRUE, index.return = TRUE)[[2]]],
-                          WidthSeq_Vec[sort(OrderSeq_Vec, decreasing = TRUE, index.return = TRUE)[[2]]],
-                          WinSizeSeq_Vec[sort(OrderSeq_Vec, decreasing = TRUE, index.return = TRUE)[[2]]])
+  if (!is.null(StartSeq_Vec)) {
+    CombinedData <- cbind(ChrSeq_Vec[sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]],
+                          StartSeq_Vec[sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]],
+                          EndSeq_Vec[sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]],
+                          OrderSeq_Vec[sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]],
+                          WidthSeq_Vec[sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]],
+                          WinSizeSeq_Vec[sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]])
     colnames(CombinedData) <- c("Chr", "Start", "End", "Order", "Width", "WindowSize")
 
     MinPeaks <- PeakMinFilt(CombinedData, WindowVecFinal)
 
     RemovePeaks <- which(as.numeric(CombinedData[,"Order"]) < MinPeaks)
-    if(length(RemovePeaks) > 0){
+    if (length(RemovePeaks) > 0) {
       CombinedData <- CombinedData[-RemovePeaks,]
     }
 
-    CombinedData <- data.frame(seqnames=CombinedData[,1],
-                               starts=as.numeric(CombinedData[,2]),
-                               ends=as.numeric(CombinedData[,3]))
+    CombinedData <- CombinedData[,c(1:3)]
     colnames(CombinedData) <- NULL
     write.table(CombinedData , file = out_path,
                 row.names=FALSE, col.names = FALSE, quote = FALSE, sep = "\t")

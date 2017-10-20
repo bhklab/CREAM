@@ -9,7 +9,7 @@
 #' @return Identified COREs for the given input regions
 #' @examples
 #' @export
-ElementRecog <- function(InputData, windowSize_Vec, peakNumMax, peakNumMin){
+ElementRecog <- function(InputData, windowSize_Vec, peakNumMax, peakNumMin) {
 
   ChrSeq             <- as.character(unique(InputData[,1]))
   WidthSeq_All       <- c()
@@ -20,7 +20,7 @@ ElementRecog <- function(InputData, windowSize_Vec, peakNumMax, peakNumMin){
   SDSeqAll_Vec       <- c()
   WindowSizeAll_Vec  <- c()
 
-  for(chrIter in ChrSeq){
+  for (chrIter in ChrSeq) {
 
     InputData_Start  <- InputData[which(InputData[,1] == chrIter),"start"]
     InputData_End    <- InputData[which(InputData[,1] == chrIter),"end"]
@@ -40,16 +40,16 @@ ElementRecog <- function(InputData, windowSize_Vec, peakNumMax, peakNumMin){
     SDElement_Vec     <- c()
     WindowSize_Vec <- c()
 
-    for(peakNumIter in seq(peakNumMax, peakNumMin, by = -1)){
+    for (peakNumIter in seq(peakNumMax, peakNumMin, by = -1)) {
       i <- 1
       WindowSize <- windowSize_Vec[(peakNumIter - 1)]
-      while(i < (length(InputData_Start)-(peakNumIter - 1))){
+      while (i < (length(InputData_Start)-(peakNumIter - 1))) {
 
         widthElement <- (InputData_End[(i+(peakNumIter - 1))] - InputData_Start[i])
         checkwindow  <- max(InputData_Start[(i+1):(i + (peakNumIter - 1))] -
                               InputData_End[i:(i+ (peakNumIter - 1) - 1)])
 
-        if(checkwindow < WindowSize){
+        if (checkwindow < WindowSize) {
           ChrElement_Vec    <- c(ChrElement_Vec, chrIter)
           StartElement_Vec  <- c(StartElement_Vec, InputData_Start[i])
           EndElement_Vec    <- c(EndElement_Vec, InputData_End[(i+(peakNumIter-1))])
@@ -59,7 +59,7 @@ ElementRecog <- function(InputData, windowSize_Vec, peakNumMax, peakNumMin){
           InputData_Start <- InputData_Start[-(i:(i+(peakNumIter-1)))]
           InputData_End   <- InputData_End[-(i:(i+(peakNumIter-1)))]
           InputData_Center <- InputData_Center[-(i:(i+(peakNumIter-1)))]
-        }else{
+        } else {
           i <- i + 1
         }
       }
