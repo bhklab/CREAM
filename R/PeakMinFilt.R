@@ -4,7 +4,6 @@
 #' @param Clusters_init Table of indetified COREs before filteration
 #' @param WindowVecFinal Vector of window sizes ordered based on Order of CORE
 #' @return Minimum order of COREs
-#' @examples
 #' @importFrom stats median
 #' @export
 PeakMinFilt <- function(Clusters_init, WindowVecFinal) {

@@ -4,8 +4,9 @@ Title: Clustering of Functional Regions Analysis Method
 Version: 0.1.0
 Date: 2017-06-14
 Authors@R: c(
-    person("Ali", "Madani", , email = "", role = c("aut")),
+    person("Ali", "Madani", , email = "ali.madanitonekaoni@mail.utoronto.ca", role = c("aut")),
     person("Victor", "Kofia", , email = "victor.kofia@gmail.com", role = c("aut")),
+    person("Mathieu", "Lupien", , email = "mlupien@uhnres.utoronto.ca", role = c("aut")),
     person("Benjamin", "Haibe-Kains", , email = "benjamin.haibe.kains@utoronto.ca", role = c("aut", "cre"))
     )
 Description: CREAM is a new method for identification of clusters of

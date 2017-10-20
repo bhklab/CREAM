@@ -7,7 +7,6 @@
 #' @param peakNumMax Maximum order of COREs (e.g. maximum number of peaks within COREs)
 #' @param peakNumMin Minimum order of COREs (e.g. minimum number of peaks within COREs)
 #' @return Identified COREs for the given input regions
-#' @examples
 #' @export
 ElementRecog <- function(InputData, windowSize_Vec, peakNumMax, peakNumMin) {
 

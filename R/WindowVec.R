@@ -5,7 +5,6 @@
 #' columns are start and ending positions.
 #' @param peakNumMin Minimum Order of COREs
 #' @return Vector of window sizes from Order 2 up to maximum Order of COREs
-#' @examples
 #' @export
 WindowVec <- function(InputData, peakNumMin) {
 

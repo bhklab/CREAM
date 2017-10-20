@@ -5,7 +5,6 @@
 #' columns are start and ending positions.
 #' @param COREorder Order of the COREs which window size has to be determined for.
 #' @return Window size identified for each order of CORE
-#' @examples
 #' @importFrom stats median quantile
 #' @export
 WindowSizeRecog <- function(InputData, COREorder) {
