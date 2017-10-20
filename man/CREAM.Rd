@@ -26,5 +26,8 @@ Bed file including the identified COREs
 CREAM is the main function for CORE identification
 }
 \examples{
-CREAM("A549_Chr21.bed", "A549_Chr21_COREs.bed", MinLength = 1000, peakNumMin = 2)
+\dontrun{
+CREAM("A549_Chr21.bed", "A549_Chr21_COREs.bed", MinLength = 1000,
+peakNumMin = 2)
+}
 }

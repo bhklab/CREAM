@@ -9,8 +9,10 @@
 #'  input file
 #' @param peakNumMin Minimum number of peaks for CORE identification
 #' @return Bed file including the identified COREs
-#' @examples
-#' CREAM("A549_Chr21.bed", "A549_Chr21_COREs.bed", MinLength = 1000, peakNumMin = 2)
+#' @examples \dontrun{
+#' CREAM("A549_Chr21.bed", "A549_Chr21_COREs.bed", MinLength = 1000,
+#' peakNumMin = 2)
+#' }
 #' @importFrom utils read.table write.table
 #' @export
 CREAM <- function(in_path, out_path, MinLength = 1000, peakNumMin = 2) {
