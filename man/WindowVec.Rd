@@ -4,7 +4,7 @@
 \alias{WindowVec}
 \title{WindowVec is a function to specify window size for each Order of COREs}
 \usage{
-WindowVec(InputData, peakNumMin)
+WindowVec(InputData, peakNumMin, WScutoff)
 }
 \arguments{
 \item{InputData}{The input data as a table including chromosome regions in
@@ -12,6 +12,8 @@ which the first column is chromosome annotation,  and second and third
 columns are start and ending positions.}
 
 \item{peakNumMin}{Minimum Order of COREs}
+
+\item{WScutoff}{Threshold used to identify WS within distribution of maximum distance between peaks for each Order of CORE}
 }
 \value{
 Vector of window sizes from Order 2 up to maximum Order of COREs
