@@ -1,7 +1,7 @@
 Package: CREAM
 Type: Package
 Title: Clustering of Functional Regions Analysis Method
-Version: 0.1.0
+Version: 1.0.0
 Date: 2017-10-23
 Authors@R: c(
     person("Ali", "Madani", , email = "ali.madanitonekaoni@mail.utoronto.ca", role = c("aut")),
