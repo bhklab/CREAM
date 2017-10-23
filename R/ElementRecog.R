@@ -1,15 +1,13 @@
-#' ElementRecog is a function to identify COREs
-#'
-#' @param InputData The input data as a table including chromosome regions
-#' in which the first column is chromosome annotation, and second and third
-#' columns are start and ending positions.
-#' @param windowSize_Vec Vector of window sizes ordered based on Order of CORE
-#' @param peakNumMax Maximum order of COREs (e.g. maximum number of peaks within COREs)
-#' @param peakNumMin Minimum order of COREs (e.g. minimum number of peaks within COREs)
-#' @return Identified COREs for the given input regions
-#' @export
-ElementRecog <- function(InputData, windowSize_Vec, peakNumMax, peakNumMin) {
+###################### ElementRecog is a function to identify COREs
+###################### Input variables of this function are as follows:
+###################### 1) InputData : The input data as a table including chromosome regions
+###################### in which the first column is chromosome annotation, and second and third columns are start and ending positions.
+###################### 2) windowSize_Vec: vector of window sizes orderes based on Order of COREs
+###################### 3) peakNumMax: maximum order of COREs (e.g. maximum number of peaks within COREs)
+###################### 4) peakNumMin: minimum order of COREs (e.g. minimum number of peaks within COREs)
 
+ElementRecog <- function(InputData, windowSize_Vec, peakNumMax, peakNumMin){
+  
   ChrSeq             <- as.character(unique(InputData[,1]))
   WidthSeq_All       <- c()
   StartRegionAll_Vec <- c()
@@ -18,19 +16,19 @@ ElementRecog <- function(InputData, windowSize_Vec, peakNumMax, peakNumMin) {
   OrderSeqAll_Vec    <- c()
   SDSeqAll_Vec       <- c()
   WindowSizeAll_Vec  <- c()
-
-  for (chrIter in ChrSeq) {
-
+  
+  for(chrIter in ChrSeq){
+    
     InputData_Start  <- InputData[which(InputData[,1] == chrIter),"start"]
     InputData_End    <- InputData[which(InputData[,1] == chrIter),"end"]
-
-    InputData_End    <- InputData_End[order(InputData_Start, decreasing = FALSE)]
-    InputData_Start  <- InputData_Start[order(InputData_Start, decreasing = FALSE)]
+    
+    InputData_End    <- InputData_End[order(InputData_Start, decreasing = F)]
+    InputData_Start  <- InputData_Start[order(InputData_Start, decreasing = F)]
     InputData_Center <- 0.5*(InputData_Start + InputData_End)
-
+    
     InputData_StartSeq <- min(InputData_Start)
     InputData_EndSeq   <- max(InputData_End)
-
+    
     ChrElement_Vec    <- c()
     StartElement_Vec  <- c()
     EndElement_Vec    <- c()
@@ -38,17 +36,17 @@ ElementRecog <- function(InputData, windowSize_Vec, peakNumMax, peakNumMin) {
     OrderElement_Vec  <- c()
     SDElement_Vec     <- c()
     WindowSize_Vec <- c()
-
-    for (peakNumIter in seq(peakNumMax, peakNumMin, by = -1)) {
+    
+    for(peakNumIter in seq(peakNumMax, peakNumMin, by = -1)){
       i <- 1
       WindowSize <- windowSize_Vec[(peakNumIter - 1)]
-      while (i < (length(InputData_Start)-(peakNumIter - 1))) {
-
+      while(i < (length(InputData_Start)-(peakNumIter - 1))){
+        
         widthElement <- (InputData_End[(i+(peakNumIter - 1))] - InputData_Start[i])
-        checkwindow  <- max(InputData_Start[(i+1):(i + (peakNumIter - 1))] -
+        checkwindow  <- max(InputData_Start[(i+1):(i + (peakNumIter - 1))] - 
                               InputData_End[i:(i+ (peakNumIter - 1) - 1)])
-
-        if (checkwindow < WindowSize) {
+        
+        if(checkwindow < WindowSize){
           ChrElement_Vec    <- c(ChrElement_Vec, chrIter)
           StartElement_Vec  <- c(StartElement_Vec, InputData_Start[i])
           EndElement_Vec    <- c(EndElement_Vec, InputData_End[(i+(peakNumIter-1))])
@@ -58,12 +56,12 @@ ElementRecog <- function(InputData, windowSize_Vec, peakNumMax, peakNumMin) {
           InputData_Start <- InputData_Start[-(i:(i+(peakNumIter-1)))]
           InputData_End   <- InputData_End[-(i:(i+(peakNumIter-1)))]
           InputData_Center <- InputData_Center[-(i:(i+(peakNumIter-1)))]
-        } else {
+        }else{
           i <- i + 1
         }
       }
     }
-
+    
     ##### Window-based analysis
     WidthSeq_All       <- c(WidthSeq_All, WidthElement_Vec)
     StartRegionAll_Vec <- c(StartRegionAll_Vec, StartElement_Vec)
@@ -72,9 +70,9 @@ ElementRecog <- function(InputData, windowSize_Vec, peakNumMax, peakNumMin) {
     OrderSeqAll_Vec    <- c(OrderSeqAll_Vec, OrderElement_Vec)
     WindowSizeAll_Vec  <- c(WindowSizeAll_Vec, WindowSize_Vec)
   }
-
+  
   return(list(WidthSeq_All,  StartRegionAll_Vec,
               EndRegionAll_Vec, ChrSeqAll_Vec, OrderSeqAll_Vec,
-              WindowSizeAll_Vec))
-
+              WindowSizeAll_Vec)) 
+  
 }
