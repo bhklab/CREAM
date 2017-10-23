@@ -4,7 +4,7 @@
 Overview
 --------
 
-CREAM is a new method for identification of clusters of functional regions (COREs) within chromosomes. It uses genome-wide maps of functional regions in the tissue or cell type of interest, such as those generated from chromatin-based assays including DNaseI, ATAC or ChIP-Seq.
+CREAM is a new method for identification of clusters of genomic regions within chromosomes. Primarily, it is used for calling Clusters of cis-Regulatory Elements (COREs). It uses genome-wide maps of genomic regions in the tissue or cell type of interest, such as those generated from chromatin-based assays including DNaseI, ATAC or ChIP-Seq.
 
 CREAM considers proximity of the elements within chromosomes of a given sample to identify COREs in the following steps:
 
