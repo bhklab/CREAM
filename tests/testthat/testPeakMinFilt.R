@@ -1,1 +1,3 @@
+library(CREAM)
+
 context("PeakMinFilt")
