@@ -30,7 +30,7 @@ Usage
 
 ``` r
 # Identify COREs using CREAM
-CREAM("CREAM/extdata/A549_Chr21.bed", "CREAM/extdata/A549_Chr21_COREs.bed", MinLength = 1000, peakNumMin = 2)
+CREAM( in_path = "inst/extdata/A549_Chr21.bed", out_path = "A549_Chr21_COREs.bed", MinLength = 1000, peakNumMin = 2 )
 ```
 
 Getting help

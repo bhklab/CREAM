@@ -7,6 +7,19 @@
 #' @param peakNumMax Maximum order of COREs (e.g. maximum number of peaks within COREs)
 #' @param peakNumMin Minimum order of COREs (e.g. minimum number of peaks within COREs)
 #' @return Identified COREs for the given input regions
+#' @examples
+#' InputData <- read.table("CREAM/extdata/A549_Chr21.bed", sep="\t")
+#' colnames(InputData) <- c("chr", "start", "end")
+#' MinLength <- 1000
+#' if(nrow(InputData) < MinLength){
+#'    stop(paste( "Number of functional regions is less than ", MinLength,
+#'    ".", sep = "", collapse = ""))
+#' }
+#' peakNumMin <- 2
+#' WScutoff <- 1.5
+#' WindowVecFinal <- WindowVec(InputData, peakNumMin, WScutoff)
+#' OutputList <- ElementRecog(InputData, WindowVecFinal,
+#' (1+length(WindowVecFinal)), peakNumMin)
 #' @export
 ElementRecog <- function(InputData, windowSize_Vec, peakNumMax, peakNumMin){
 
