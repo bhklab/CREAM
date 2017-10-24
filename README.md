@@ -14,7 +14,7 @@ CREAM considers proximity of the elements within chromosomes of a given sample t
  
 3. It calls COREs 
  
-4. It filters the COREs with lowest order which does not pass the threshold considered in the appraoch.
+4. It filters the COREs with lowest order which does not pass the threshold considered in the approach.
 
 Installation
 ------------
@@ -28,7 +28,10 @@ devtools::install_github("bhklab/CREAM")
 Usage
 -----
 
-Under construction
+``` r
+# Identify COREs using CREAM
+CREAM("CREAM/extdata/A549_Chr21.bed", "CREAM/extdata/A549_Chr21_COREs.bed", MinLength = 1000, peakNumMin = 2)
+```
 
 Getting help
 ------------
