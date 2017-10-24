@@ -14,7 +14,8 @@ input file}
 
 \item{out_path}{The path in which you want to store the identified COREs}
 
-\item{WScutoff}{Threshold used to identify WS within distribution of maximum distance between peaks for each order of CORE}
+\item{WScutoff}{Threshold used to identify WS within distribution of maximum
+distance between peaks for each order of CORE}
 
 \item{MinLength}{Criteria for the minimum number of functional regions in the
 input file}
@@ -28,8 +29,6 @@ Bed file including the identified COREs
 CREAM is the main function for CORE identification
 }
 \examples{
-\dontrun{
-CREAM("A549_Chr21.bed", "A549_Chr21_COREs.bed", MinLength = 1000,
-peakNumMin = 2)
-}
+CREAM("CREAM/extdata/A549_Chr21.bed", "CREAM/extdata/A549_Chr21_COREs.bed",
+MinLength = 1000, peakNumMin = 2)
 }
