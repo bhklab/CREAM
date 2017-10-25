@@ -24,8 +24,8 @@ Identified COREs for the given input regions
 ElementRecog is a function to identify COREs
 }
 \examples{
-\dontrun{
-InputData <- read.table("A549_Chr21.bed", sep="\\t")
+InputData <- read.table(system.file("extdata", "A549_Chr21.bed",
+package = "CREAM"), sep="\\t")
 colnames(InputData) <- c("chr", "start", "end")
 MinLength <- 1000
 if(nrow(InputData) < MinLength){
@@ -37,5 +37,4 @@ WScutoff <- 1.5
 WindowVecFinal <- WindowVec(InputData, peakNumMin, WScutoff)
 OutputList <- ElementRecog(InputData, WindowVecFinal,
 (1+length(WindowVecFinal)), peakNumMin)
-}
 }

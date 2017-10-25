@@ -8,8 +8,8 @@
 #' @param peakNumMin Minimum order of COREs (e.g. minimum number of peaks within COREs)
 #' @return Identified COREs for the given input regions
 #' @examples
-#' \dontrun{
-#' InputData <- read.table("A549_Chr21.bed", sep="\t")
+#' InputData <- read.table(system.file("extdata", "A549_Chr21.bed",
+#' package = "CREAM"), sep="\t")
 #' colnames(InputData) <- c("chr", "start", "end")
 #' MinLength <- 1000
 #' if(nrow(InputData) < MinLength){
@@ -21,7 +21,6 @@
 #' WindowVecFinal <- WindowVec(InputData, peakNumMin, WScutoff)
 #' OutputList <- ElementRecog(InputData, WindowVecFinal,
 #' (1+length(WindowVecFinal)), peakNumMin)
-#' }
 #' @export
 ElementRecog <- function(InputData, windowSize_Vec, peakNumMax, peakNumMin){
 
