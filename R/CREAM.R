@@ -12,8 +12,9 @@
 #' distance between peaks for each order of CORE
 #' @return Bed file including the identified COREs
 #' @examples
-#' CREAM("CREAM/extdata/A549_Chr21.bed", "CREAM/extdata/A549_Chr21_COREs.bed",
-#' MinLength = 1000, peakNumMin = 2)
+#' \dontrun{
+#' CREAM("A549_Chr21.bed", "A549_Chr21_COREs.bed", MinLength = 1000, peakNumMin = 2)
+#' }
 #' @importFrom utils read.table write.table
 #' @export
 CREAM <- function(in_path, out_path, WScutoff = 1.5, MinLength = 1000, peakNumMin = 2){

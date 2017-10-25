@@ -7,7 +7,8 @@
 #' @param WScutoff Threshold used to identify WS within distribution of maximum distance between peaks for each Order of CORE
 #' @return Vector of window sizes from Order 2 up to maximum Order of COREs
 #' @examples
-#' InputData <- read.table("CREAM/extdata/A549_Chr21.bed", sep="\t")
+#' \dontrun{
+#' InputData <- read.table("A549_Chr21.bed", sep="\t")
 #' colnames(InputData) <- c("chr", "start", "end")
 #' MinLength <- 1000
 #' if(nrow(InputData) < MinLength){
@@ -17,6 +18,7 @@
 #' peakNumMin <- 2
 #' WScutoff <- 1.5
 #' WindowVecFinal <- WindowVec(InputData, peakNumMin, WScutoff)
+#' }
 #' @export
 WindowVec <- function(InputData, peakNumMin, WScutoff){
 

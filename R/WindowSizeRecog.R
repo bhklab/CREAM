@@ -8,7 +8,8 @@
 #' @return Window size identified for each order of CORE
 #' @importFrom stats median quantile
 #' @examples
-#' InputData <- read.table("CREAM/extdata/A549_Chr21.bed", sep="\t")
+#' \dontrun{
+#' InputData <- read.table("A549_Chr21.bed", sep="\t")
 #' colnames(InputData) <- c("chr", "start", "end")
 #' MinLength <- 1000
 #' if(nrow(InputData) < MinLength){
@@ -18,6 +19,7 @@
 #' peakNumMin <- 2
 #' WScutoff <- 1.5
 #' WindowSize <- WindowSizeRecog(InputData, peakNumMin, WScutoff)
+#' }
 #' @export
 WindowSizeRecog <- function(InputData, COREorder, WScutoff){
 
