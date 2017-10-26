@@ -1,6 +1,6 @@
 Package: CREAM
 Type: Package
-Title: Clustering Of Genomic Regions Analysis Method
+Title: Clustering of Genomic Regions Analysis Method
 Version: 1.0.0
 Date: 2017-10-23
 Authors@R: c(
@@ -10,8 +10,8 @@ Authors@R: c(
     person("Benjamin", "Haibe-Kains", , email = "benjamin.haibe.kains@utoronto.ca", role = c("aut", "cre"))
     )
 Description: Provides a new method for identification of clusters of genomic
- regions within chromosomes. Primarily, it is used for calling Clusters of 
- cis-Regulatory Elements (COREs). 'CREAM' uses genome-wide maps of genomic regions
+ regions within chromosomes. Primarily, it is used for calling clusters of 
+ cis-regulatory elements (COREs). 'CREAM' uses genome-wide maps of genomic regions
  in the tissue or cell type of interest, such as those generated from chromatin-based 
  assays including DNaseI, ATAC or ChIP-Seq. 'CREAM' considers proximity of the elements 
  within chromosomes of a given sample to identify COREs in the following steps:
