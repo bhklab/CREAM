@@ -1,11 +1,11 @@
-#' WindowVec is a function to specify window size for each Order of COREs
+#' WindowVec is a function to specify window size for each order of COREs
 #'
 #' @param InputData The input data as a table including chromosome regions in
 #' which the first column is chromosome annotation,  and second and third
 #' columns are start and ending positions.
-#' @param peakNumMin Minimum Order of COREs
-#' @param WScutoff Threshold used to identify WS within distribution of maximum distance between peaks for each Order of CORE
-#' @return Vector of window sizes from Order 2 up to maximum Order of COREs
+#' @param peakNumMin Minimum order of COREs
+#' @param WScutoff Threshold used to identify WS within distribution of maximum distance between peaks for each order of CORE
+#' @return Vector of window sizes from order 2 up to maximum order of COREs
 #' @examples
 #' InputData <- read.table(system.file("extdata", "A549_Chr21.bed",
 #' package = "CREAM"), sep="\t")

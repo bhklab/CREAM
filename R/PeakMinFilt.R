@@ -3,7 +3,7 @@
 #' between functional regions is close to the corresponding Window Size
 #'
 #' @param Clusters_init Table of indetified COREs before filteration
-#' @param WindowVecFinal Vector of window sizes ordered based on Order of CORE
+#' @param WindowVecFinal Vector of window sizes ordered based on order of CORE
 #' @return Minimum order of COREs
 #' @importFrom stats median
 #' @export

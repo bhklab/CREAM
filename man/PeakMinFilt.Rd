@@ -10,7 +10,7 @@ PeakMinFilt(Clusters_init, WindowVecFinal)
 \arguments{
 \item{Clusters_init}{Table of indetified COREs before filteration}
 
-\item{WindowVecFinal}{Vector of window sizes ordered based on Order of CORE}
+\item{WindowVecFinal}{Vector of window sizes ordered based on order of CORE}
 }
 \value{
 Minimum order of COREs

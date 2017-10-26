@@ -2,7 +2,7 @@
 % Please edit documentation in R/WindowVec.R
 \name{WindowVec}
 \alias{WindowVec}
-\title{WindowVec is a function to specify window size for each Order of COREs}
+\title{WindowVec is a function to specify window size for each order of COREs}
 \usage{
 WindowVec(InputData, peakNumMin, WScutoff)
 }
@@ -11,15 +11,15 @@ WindowVec(InputData, peakNumMin, WScutoff)
 which the first column is chromosome annotation,  and second and third
 columns are start and ending positions.}
 
-\item{peakNumMin}{Minimum Order of COREs}
+\item{peakNumMin}{Minimum order of COREs}
 
-\item{WScutoff}{Threshold used to identify WS within distribution of maximum distance between peaks for each Order of CORE}
+\item{WScutoff}{Threshold used to identify WS within distribution of maximum distance between peaks for each order of CORE}
 }
 \value{
-Vector of window sizes from Order 2 up to maximum Order of COREs
+Vector of window sizes from order 2 up to maximum order of COREs
 }
 \description{
-WindowVec is a function to specify window size for each Order of COREs
+WindowVec is a function to specify window size for each order of COREs
 }
 \examples{
 InputData <- read.table(system.file("extdata", "A549_Chr21.bed",

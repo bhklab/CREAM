@@ -1,10 +1,10 @@
-#' WindowSizeRecog is a function to specify window size for each Order of COREs
+#' WindowSizeRecog is a function to specify window size for each order of COREs
 #'
 #' @param InputData The input data as a table including chromosome regions
 #' in which the first column is chromosome annotation, and second and third
 #' columns are start and ending positions.
 #' @param COREorder Order of the COREs which window size has to be determined for.
-#' @param WScutoff Threshold used to identify WS within distribution of maximum distance between peaks for each Order of CORE
+#' @param WScutoff Threshold used to identify WS within distribution of maximum distance between peaks for each order of CORE
 #' @return Window size identified for each order of CORE
 #' @importFrom stats median quantile
 #' @examples

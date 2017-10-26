@@ -2,7 +2,7 @@
 % Please edit documentation in R/WindowSizeRecog.R
 \name{WindowSizeRecog}
 \alias{WindowSizeRecog}
-\title{WindowSizeRecog is a function to specify window size for each Order of COREs}
+\title{WindowSizeRecog is a function to specify window size for each order of COREs}
 \usage{
 WindowSizeRecog(InputData, COREorder, WScutoff)
 }
@@ -13,13 +13,13 @@ columns are start and ending positions.}
 
 \item{COREorder}{Order of the COREs which window size has to be determined for.}
 
-\item{WScutoff}{Threshold used to identify WS within distribution of maximum distance between peaks for each Order of CORE}
+\item{WScutoff}{Threshold used to identify WS within distribution of maximum distance between peaks for each order of CORE}
 }
 \value{
 Window size identified for each order of CORE
 }
 \description{
-WindowSizeRecog is a function to specify window size for each Order of COREs
+WindowSizeRecog is a function to specify window size for each order of COREs
 }
 \examples{
 InputData <- read.table(system.file("extdata", "A549_Chr21.bed",

@@ -11,7 +11,7 @@ ElementRecog(InputData, windowSize_Vec, peakNumMax, peakNumMin)
 in which the first column is chromosome annotation, and second and third
 columns are start and ending positions.}
 
-\item{windowSize_Vec}{Vector of window sizes ordered based on Order of CORE}
+\item{windowSize_Vec}{Vector of window sizes ordered based on order of CORE}
 
 \item{peakNumMax}{Maximum order of COREs (e.g. maximum number of peaks within COREs)}
 
