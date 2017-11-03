@@ -51,10 +51,14 @@ WindowSizeRecog <- function(InputData, COREorder, WScutoff){
     #StartElement_Vec  <- c()
     #EndElement_Vec    <- c()
     #WidthElement_Vec  <- c()
-    OrderElement_Vec  <- c()
+    # OrderElement_Vec  <- c()
     #SDElement_Vec     <- c()
-    WindowElement_Vec <- c()
+    # WindowElement_Vec <- c()
+    
     peakNumIter <- COREorder
+    OrderElement_Vec  <- rep(0,((length(InputData_Start)-(peakNumIter - 1))-1))
+    WindowElement_Vec <- rep(0,((length(InputData_Start)-(peakNumIter - 1))-1))
+    ##########
     i <- 1
     while(i < (length(InputData_Start)-(peakNumIter - 1))){
       
@@ -66,8 +70,10 @@ WindowSizeRecog <- function(InputData, COREorder, WScutoff){
       #StartElement_Vec  <- c(StartElement_Vec, InputData_Start[i])
       #EndElement_Vec    <- c(EndElement_Vec, InputData_End[(i+(peakNumIter-1))])
       #WidthElement_Vec  <- c(WidthElement_Vec, widthElement)
-      OrderElement_Vec  <- c(OrderElement_Vec, peakNumIter)
-      WindowElement_Vec <- c(WindowElement_Vec, checkwindow)
+      # OrderElement_Vec  <- c(OrderElement_Vec, peakNumIter)
+      # WindowElement_Vec <- c(WindowElement_Vec, checkwindow)
+      OrderElement_Vec[i]  <- peakNumIter
+      WindowElement_Vec[i] <- checkwindow
       i <- i + 1
     }
     
