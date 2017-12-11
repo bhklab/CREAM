@@ -8,7 +8,7 @@
 #' @importFrom stats median
 #' @export
 PeakMinFilt <- function(Clusters_init, WindowVecFinal){
-  print("filtering Clusters of low order")
+  print("Filtering clusters of low order")
   UniqueOrder <- sort(unique(as.numeric(Clusters_init[,"Order"])), decreasing = F)
   Zscore <- c()
   for(OrderIter in 1:length(UniqueOrder)){
