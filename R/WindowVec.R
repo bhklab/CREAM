@@ -20,7 +20,7 @@
 #' WindowVecFinal <- WindowVec(InputData, peakNumMin, WScutoff)
 #' @export
 WindowVec <- function(InputData, peakNumMin, WScutoff){
-
+  print("Identifying window size for each Order")
   WindowVec_Act <- c()
   WindowSize <- WindowSizeRecog(InputData, peakNumMin, WScutoff)
   WindowVec_Act <- c(WindowVec_Act, WindowSize)
@@ -28,14 +28,14 @@ WindowVec <- function(InputData, peakNumMin, WScutoff){
   while(WindowVec_Act[length(WindowVec_Act)] >0){
     OrderIter <- (OrderIter+1)
     peakNumMax <- OrderIter
-
+    
     WindowSize <- WindowSizeRecog(InputData, peakNumMax, WScutoff)
-
+    
     WindowVec_Act <- c(WindowVec_Act, WindowSize)
     lenWinVec <- length(WindowVec_Act)
-
+    
     if(WindowVec_Act[lenWinVec] > 1 & WindowVec_Act[(lenWinVec - 1)] > 1){
-      if(WindowVec_Act[lenWinVec] < WindowVec_Act[(lenWinVec - 1)] ||
+      if(WindowVec_Act[lenWinVec] < WindowVec_Act[(lenWinVec - 1)] || 
          WindowVec_Act[lenWinVec] == WindowVec_Act[(lenWinVec - 1)]){
         return(WindowVec_Act[1:(lenWinVec - 1)])
         stop("Vector obtained")
@@ -44,4 +44,3 @@ WindowVec <- function(InputData, peakNumMin, WScutoff){
   }
   return(WindowVec_Act)
 }
-
