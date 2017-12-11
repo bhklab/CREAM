@@ -21,9 +21,19 @@ CREAM <- function(in_path, out_path, WScutoff = 1.5, MinLength = 1000, peakNumMi
   InputData   <- read.table(in_path, sep="\t")
   colnames(InputData) <- c("chr", "start", "end")
   ###########################
-  ###########################
+  print(paste("Please make sure there is no overlap between the input genomic regions.",
+              "Overlap between the input regions may cause error."))
+  ########################### Checking total number of input regions
   if(nrow(InputData) < MinLength){
     stop(paste( "Number of functional regions is less than ", MinLength, ".", sep = "", collapse = ""))
+  }
+  ##################### Checking if there are chromosomes with low number of input regions
+  ChrRegNum <- table(InputData[,"chr"])
+  LowNumChr_Ind <- which(ChrRegNum < 200)
+  if(length(LowNumChr_Ind) > 0){
+    warning(paste("There are chromosome with low number of regions and you may get error.",
+                  "The reason is that highest Order may become larger than the number of regions in a chromosome.",
+                  "Hence, there will not be enough regions in that chromosome for clustering."))
   }
   #####################
   WindowVecFinal <- WindowVec(InputData, peakNumMin, WScutoff)
@@ -36,21 +46,22 @@ CREAM <- function(in_path, out_path, WScutoff = 1.5, MinLength = 1000, peakNumMi
   WinSizeSeq_Vec  <-  OutputList[[6]]
   ####################
   if(!is.null(StartSeq_Vec)){
-    CombinedData <- cbind(ChrSeq_Vec[sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]],
-                          StartSeq_Vec[sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]],
-                          EndSeq_Vec[sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]],
-                          OrderSeq_Vec[sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]],
-                          WidthSeq_Vec[sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]],
-                          WinSizeSeq_Vec[sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]])
+    SortedOrderInd <- sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]
+    CombinedData <- cbind(ChrSeq_Vec[SortedOrderInd],
+                          StartSeq_Vec[SortedOrderInd], 
+                          EndSeq_Vec[SortedOrderInd],
+                          OrderSeq_Vec[SortedOrderInd], 
+                          WidthSeq_Vec[SortedOrderInd],
+                          WinSizeSeq_Vec[SortedOrderInd])
     colnames(CombinedData) <- c("Chr", "Start", "End", "Order", "Width", "WindowSize")
-
+    
     MinPeaks <- PeakMinFilt(CombinedData, WindowVecFinal)
-
+    
     RemovePeaks <- which(as.numeric(CombinedData[,"Order"]) < MinPeaks)
     if(length(RemovePeaks) > 0){
       CombinedData <- CombinedData[-RemovePeaks,]
     }
-
+    
     CombinedData <- CombinedData[,c(1:3)]
     colnames(CombinedData) <- NULL
     write.table(CombinedData , file = out_path,
