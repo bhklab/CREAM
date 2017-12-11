@@ -8,15 +8,11 @@
 #' @importFrom stats median
 #' @export
 PeakMinFilt <- function(Clusters_init, WindowVecFinal){
-  
+  print("filtering Clusters of low order")
   UniqueOrder <- sort(unique(as.numeric(Clusters_init[,"Order"])), decreasing = F)
-  #MinWindowVec <- c()
-  #MaxWindowVec <- c()
   Zscore <- c()
   for(OrderIter in 1:length(UniqueOrder)){
     TargetInd <- which(as.numeric(Clusters_init[,"Order"]) == UniqueOrder[OrderIter])
-    #MinWindowVec <- c(MinWindowVec, min(as.numeric(Clusters_init[TargetInd,"WindowSize"])))
-    #MaxWindowVec <- c(MaxWindowVec, WindowVecFinal[(UniqueOrder[OrderIter] - 1)])
     Zscore <- c(Zscore, (WindowVecFinal[(UniqueOrder[OrderIter] - 1)] - 
                            median(as.numeric(Clusters_init[TargetInd,"WindowSize"]))
     )/median(as.numeric(Clusters_init[TargetInd,"WindowSize"])))
