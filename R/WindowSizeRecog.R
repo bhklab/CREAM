@@ -21,7 +21,7 @@
 #' WindowSize <- WindowSizeRecog(InputData, peakNumMin, WScutoff)
 #' @export
 WindowSizeRecog <- function(InputData, COREorder, WScutoff){
-
+  
   ChrSeq             <- as.character(unique(InputData[,1]))
   OrderSeqAll_Vec    <- c()
   WindowAll_Vec      <- c()
@@ -43,24 +43,27 @@ WindowSizeRecog <- function(InputData, COREorder, WScutoff){
     InputData_EndSeq   <- max(InputData_End)
     
     peakNumIter <- COREorder
-    OrderElement_Vec  <- rep(0,((length(InputData_Start)-(peakNumIter - 1))-1))
-    WindowElement_Vec <- rep(0,((length(InputData_Start)-(peakNumIter - 1))-1))
-    ##########
-    i <- 1
-    while(i < (length(InputData_Start)-(peakNumIter - 1))){
-      
-      widthElement <- (InputData_End[(i+(peakNumIter - 1))] - InputData_Start[i])
-      checkwindow  <- max(InputData_Start[(i+1):(i + (peakNumIter - 1))] - 
-                            InputData_End[i:(i+ (peakNumIter - 1) - 1)])
-      
-      OrderElement_Vec[i]  <- peakNumIter
-      WindowElement_Vec[i] <- checkwindow
-      i <- i + 1
-    }
     
-    ##### Window-based analysis
-    OrderSeqAll_Vec    <- c(OrderSeqAll_Vec, OrderElement_Vec)
-    WindowAll_Vec <- c(WindowAll_Vec, WindowElement_Vec)
+    if(((length(InputData_Start)-(peakNumIter - 1))-1) > 0){
+      OrderElement_Vec  <- rep(0,((length(InputData_Start)-(peakNumIter - 1))-1))
+      WindowElement_Vec <- rep(0,((length(InputData_Start)-(peakNumIter - 1))-1))
+      ##########
+      i <- 1
+      while(i < (length(InputData_Start)-(peakNumIter - 1))){
+        
+        widthElement <- (InputData_End[(i+(peakNumIter - 1))] - InputData_Start[i])
+        checkwindow  <- max(InputData_Start[(i+1):(i + (peakNumIter - 1))] - 
+                              InputData_End[i:(i+ (peakNumIter - 1) - 1)])
+        
+        OrderElement_Vec[i]  <- peakNumIter
+        WindowElement_Vec[i] <- checkwindow
+        i <- i + 1
+      }
+      
+      ##### Window-based analysis
+      OrderSeqAll_Vec    <- c(OrderSeqAll_Vec, OrderElement_Vec)
+      WindowAll_Vec <- c(WindowAll_Vec, WindowElement_Vec)
+    }
   }
   
   i <- COREorder
@@ -69,9 +72,9 @@ WindowSizeRecog <- function(InputData, COREorder, WScutoff){
   SortedWindowQuan <- quantile(SortedWindow_Vec)
   aa <- (as.numeric(SortedWindowQuan[4]) + WScutoff*(as.numeric(SortedWindowQuan[4])-
                                                        as.numeric(SortedWindowQuan[2])))
-
+  
   RemovePeaks <- which(SortedWindow_Vec > aa)
-
+  
   if(length(RemovePeaks) > 0){
     bb <- log(SortedWindow_Vec[-RemovePeaks])
   }else{
