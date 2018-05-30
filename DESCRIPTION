@@ -19,7 +19,7 @@ Description: Provides a new method for identification of clusters of genomic
  within each CORE, 2) It identifies number of elements which should be clustered 
  as a CORE, 3) It calls COREs, 4) It filters the COREs with lowest order which 
  does not pass the threshold considered in the approach.
-License: GNU GPL-3.0
+License: GPL (>= 3)
 Imports:
     stats,
     utils
