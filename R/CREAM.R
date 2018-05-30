@@ -4,7 +4,6 @@
 #' regions)
 #' Note. You have to make sure that there is no overlapping regions within the
 #' input file
-#' @param out_path The path in which you want to store the identified COREs
 #' @param MinLength Criteria for the minimum number of functional regions in the
 #'  input file
 #' @param peakNumMin Minimum number of peaks for CORE identification
@@ -17,7 +16,7 @@
 #' MinLength = 1000, peakNumMin = 2)
 #' @importFrom utils read.table write.table
 #' @export
-CREAM <- function(in_path, out_path, WScutoff = 1.5, MinLength = 1000, peakNumMin = 2){
+CREAM <- function(in_path, WScutoff = 1.5, MinLength = 1000, peakNumMin = 2){
   InputData   <- read.table(in_path, sep="\t")
   colnames(InputData) <- c("chr", "start", "end")
   ###########################
@@ -48,23 +47,22 @@ CREAM <- function(in_path, out_path, WScutoff = 1.5, MinLength = 1000, peakNumMi
   if(!is.null(StartSeq_Vec)){
     SortedOrderInd <- sort(OrderSeq_Vec, decreasing = T, index.return = T)[[2]]
     CombinedData <- cbind(ChrSeq_Vec[SortedOrderInd],
-                          StartSeq_Vec[SortedOrderInd], 
+                          StartSeq_Vec[SortedOrderInd],
                           EndSeq_Vec[SortedOrderInd],
-                          OrderSeq_Vec[SortedOrderInd], 
+                          OrderSeq_Vec[SortedOrderInd],
                           WidthSeq_Vec[SortedOrderInd],
                           WinSizeSeq_Vec[SortedOrderInd])
     colnames(CombinedData) <- c("Chr", "Start", "End", "Order", "Width", "WindowSize")
-    
+
     MinPeaks <- PeakMinFilt(CombinedData, WindowVecFinal)
-    
+
     RemovePeaks <- which(as.numeric(CombinedData[,"Order"]) < MinPeaks)
     if(length(RemovePeaks) > 0){
       CombinedData <- CombinedData[-RemovePeaks,]
     }
-    
+
     CombinedData <- CombinedData[,c(1:3)]
     colnames(CombinedData) <- NULL
-    write.table(CombinedData , file = out_path,
-                row.names=FALSE, col.names = FALSE, quote = FALSE, sep = "\t")
+    return(CombinedData)
   }
 }
