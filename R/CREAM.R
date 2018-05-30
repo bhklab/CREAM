@@ -12,7 +12,6 @@
 #' @return Bed file including the identified COREs
 #' @examples
 #' CREAM(system.file("extdata", "A549_Chr21.bed", package = "CREAM"),
-#' system.file("extdata", "A549_Chr21_COREs.bed", package = "CREAM"),
 #' MinLength = 1000, peakNumMin = 2)
 #' @importFrom utils read.table write.table
 #' @export

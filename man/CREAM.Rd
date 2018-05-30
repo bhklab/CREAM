@@ -4,15 +4,13 @@
 \alias{CREAM}
 \title{CREAM is the main function for CORE identification}
 \usage{
-CREAM(in_path, out_path, WScutoff = 1.5, MinLength = 1000, peakNumMin = 2)
+CREAM(in_path, WScutoff = 1.5, MinLength = 1000, peakNumMin = 2)
 }
 \arguments{
 \item{in_path}{Path to the input file (The file inclusing the functional
 regions)
 Note. You have to make sure that there is no overlapping regions within the
 input file}
-
-\item{out_path}{The path in which you want to store the identified COREs}
 
 \item{WScutoff}{Threshold used to identify WS within distribution of maximum
 distance between peaks for each order of CORE}
@@ -30,6 +28,5 @@ CREAM is the main function for CORE identification
 }
 \examples{
 CREAM(system.file("extdata", "A549_Chr21.bed", package = "CREAM"),
-system.file("extdata", "A549_Chr21_COREs.bed", package = "CREAM"),
 MinLength = 1000, peakNumMin = 2)
 }
