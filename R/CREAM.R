@@ -60,7 +60,6 @@ CREAM <- function(in_path, WScutoff = 1.5, MinLength = 1000, peakNumMin = 2){
       CombinedData <- CombinedData[-RemovePeaks,]
     }
 
-    CombinedData <- CombinedData[,c(1:3)]
     colnames(CombinedData) <- NULL
     return(CombinedData)
   }
