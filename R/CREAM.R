@@ -7,6 +7,7 @@
 #' @param MinLength Criteria for the minimum number of functional regions in the
 #'  input file
 #' @param peakNumMin Minimum number of peaks for CORE identification
+#' @param optimize Switch to automatic WScutoff for LOCKs
 #' @param WScutoff Threshold used to identify WS within distribution of maximum
 #' distance between peaks for each order of CORE
 #' @return Bed file including the identified COREs
@@ -15,7 +16,7 @@
 #' MinLength = 1000, peakNumMin = 2)
 #' @importFrom utils read.table write.table
 #' @export
-CREAM <- function(in_path, WScutoff = 1.5, MinLength = 1000, peakNumMin = 2){
+CREAM <- function(in_path, WScutoff = 1.5, MinLength = 1000, peakNumMin = 2, optimize=TRUE){
   InputData   <- read.table(in_path, sep="\t")
   colnames(InputData) <- c("chr", "start", "end")
   ###########################
@@ -35,7 +36,12 @@ CREAM <- function(in_path, WScutoff = 1.5, MinLength = 1000, peakNumMin = 2){
   }
   #####################
   WindowVecFinal <- WindowVec(InputData, peakNumMin, WScutoff)
-  OutputList <- ElementRecog(InputData, WindowVecFinal, (1+length(WindowVecFinal)), peakNumMin)
+  if(optimize == TRUE){
+    OutputList <- ElementRecog_freecutoff(InputData, WindowVecFinal, (1+length(WindowVecFinal)), peakNumMin)
+  }else{
+    OutputList <- ElementRecog(InputData, WindowVecFinal, (1+length(WindowVecFinal)), peakNumMin)
+  }
+  
   WidthSeq_Vec    <-  OutputList[[1]]
   StartSeq_Vec    <-  OutputList[[2]]
   EndSeq_Vec      <-  OutputList[[3]]

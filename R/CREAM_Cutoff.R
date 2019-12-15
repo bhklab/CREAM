@@ -24,7 +24,7 @@ CREAM_Cutoff <- function(in_path, MinLength = 1000, peakNumMin = 2){
   for(Cutoff in seq(15,-20,-0.5)){
     CutIter <- (CutIter+1)
     
-    aa <- CREAM(in_path,WScutoff = Cutoff*0.1, MinLength = 1000, peakNumMin = 2)
+    aa <- CREAM(in_path,WScutoff = Cutoff*0.1, MinLength = 1000, peakNumMin = 2, optimize=TRUE)
     if(!is.null(aa)){
       ClustList[[CutIter]] <- matrix(aa, ncol = 6)
       if(nrow(ClustList[[CutIter]]) == 0){
