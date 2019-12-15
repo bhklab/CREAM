@@ -30,20 +30,12 @@ CREAM_Cutoff <- function(in_path, MinLength = 1000, peakNumMin = 2){
       if(nrow(ClustList[[CutIter]]) == 0){
         MedWidth <- c(MedWidth, 0)
       }else{
-        MedWidth <- c(MedWidth, 
-                      (1e-3)*(sum(as.numeric(ClustList[[CutIter]][,3])-as.numeric(ClustList[[CutIter]][,2])
-                      )/nrow(ClustList[[CutIter]])))
-
         SumVec <- c(SumVec, sum(as.numeric(ClustList[[CutIter]][,5]))/sum((as.numeric(ClustList[[CutIter]][,3])-
                                                                              as.numeric(ClustList[[CutIter]][,2]))))
-
-        MaxOrder <- c(MaxOrder, sum(as.numeric(ClustList[[CutIter]][,5])))
       }
     }else{
       ClustList[[CutIter]] <- matrix(rep(NA,3), ncol = 3)
-      MedWidth <- c(MedWidth, 1e5)
       SumVec <- c(SumVec, 0)
-      MaxOrder <- c(MaxOrder, 1)
     }
     ##############
     if(length(SumVec) > 2 & min(SumVec[(length(SumVec)-2):(length(SumVec))]) > 0){
