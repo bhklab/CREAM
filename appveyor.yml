@@ -19,6 +19,7 @@ environment:
   NOT_CRAN: true
 
 build_script:
+  - travis-tool.sh install_bioc stats utils
   - travis-tool.sh install_deps
 
 test_script:
@@ -26,8 +27,6 @@ test_script:
 
 on_failure:
   - travis-tool.sh dump_logs
-
-
 
 artifacts:
   - path: '*.Rcheck\**\*.log'
