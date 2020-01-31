@@ -15,8 +15,14 @@ cache:
 
 # Adapt as necessary starting from here
 
+platform: x64
+
+matrix:
+  - R_VERSION: devel
+  - R_VERSION: release
+
 build_script:
-  - travis-tool.sh install_bioc stats utils
+#  - travis-tool.sh install_bioc stats utils
   - travis-tool.sh install_deps
 
 test_script:
