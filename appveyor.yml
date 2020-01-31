@@ -17,9 +17,9 @@ cache:
 
 platform: x64
 
-matrix:
+environment:
   - R_VERSION: devel
-  - R_VERSION: release
+  - NOT_CRAN: true
 
 build_script:
 #  - travis-tool.sh install_bioc stats utils
