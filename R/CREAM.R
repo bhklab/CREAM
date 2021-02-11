@@ -35,7 +35,7 @@ CREAM <- function(in_path, WScutoff = 1.5, MinLength = 1000, peakNumMin = 2, opt
                   "Hence, there will not be enough regions in that chromosome for clustering."))
   }
   #####################
-  WindowVecFinal <- WindowVec(InputData, peakNumMin, WScutoff)
+  WindowVecFinal <- WindowVec(InputData, peakNumMin, WScutoff, optim = optimize)
   if(optimize == TRUE){
     OutputList <- ElementRecog_freecutoff(InputData, WindowVecFinal, (1+length(WindowVecFinal)), peakNumMin)
   }else{
