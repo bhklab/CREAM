@@ -19,10 +19,16 @@
 #' WScutoff <- 1.5
 #' WindowVecFinal <- WindowVec(InputData, peakNumMin, WScutoff)
 #' @export
-WindowVec <- function(InputData, peakNumMin, WScutoff){
+WindowVec <- function(InputData, peakNumMin, WScutoff, optim){
   print("Identifying window size for each Order")
   WindowVec_Act <- c()
-  WindowSize <- WindowSizeRecog(InputData, peakNumMin, WScutoff)
+  
+  if(optim == TRUE){
+    WindowSize <- WindowSizeRecog(InputData, peakNumMin, WScutoff)
+  }else{
+    WindowSize <- WindowSizeRecog_freecutoff(InputData, peakNumMin, WScutoff)
+  }
+  
   WindowVec_Act <- c(WindowVec_Act, WindowSize)
   OrderIter <- 2
   while(WindowVec_Act[length(WindowVec_Act)] >0){
